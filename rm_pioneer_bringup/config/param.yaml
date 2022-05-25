@@ -1,0 +1,57 @@
+/realsense_camera:
+  ros__parameters:
+    enable_accel: false
+    enable_color: true
+    enable_depth: true
+    enable_gyro: false
+    enable_infra: false
+    enable_infra1: false
+    enable_infra2: false
+    enable_sync: false
+    rgb_camera:
+      profile: 640x360x90
+      brightness: 0
+      contrast: 50
+      exposure: 45
+      gain: 64
+      gamma: 300
+    color_qos: DEFAULT
+    depth_module:
+      profile: 640x360x90
+      exposure: 8000
+
+    align_depth:
+      enable: true
+    depth_qos: DEFAULT
+
+/armor_detector:
+  ros__parameters:
+    use_depth: false
+    subscribe_compressed: false
+
+    min_lightness: 145
+
+    light:
+      max_angle: 40.0
+      max_ratio: 0.4
+      min_ratio: 0.1
+
+    armor:
+      max_angle: 35.0
+      max_center_ratio: 1.6
+      min_center_ratio: 0.4
+      min_light_ratio: 0.6
+      max_large_center_distance: 5.0
+      min_large_center_distance: 3.2
+      max_small_center_distance: 3.2
+      min_small_center_distance: 0.8
+
+    classifier:
+      similarity_threshold: 0.7
+
+/armor_processor:
+  ros__parameters:
+    tracker:
+      max_match_distance: 0.2
+      tracking_threshold: 5
+      lost_threshold: 25
